@@ -1,0 +1,21 @@
+<section class="provider-dashboard">
+  <header class="provider-dashboard__header">
+    <h1>Provider Network Dashboard</h1>
+    <p>Review leakage trends and network opportunity signals.</p>
+  </header>
+
+  <div *ngIf="hasMetrics; else emptyState" class="provider-dashboard__summary">
+    <div class="summary-card">
+      <span class="summary-card__label">Current Leakage</span>
+      <strong class="summary-card__value">
+        {{ leakageTrend | number: "1.2-2" }}%
+      </strong>
+    </div>
+  </div>
+
+  <ng-template #emptyState>
+    <div class="provider-dashboard__empty">
+      No leakage metrics are available.
+    </div>
+  </ng-template>
+</section>

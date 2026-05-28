@@ -1,0 +1,52 @@
+.provider-dashboard {
+  padding: 24px;
+  border-radius: 12px;
+  background: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+
+  &__header {
+    margin-bottom: 20px;
+
+    h1 {
+      margin: 0;
+      font-size: 24px;
+      font-weight: 600;
+    }
+
+    p {
+      margin: 8px 0 0;
+      color: #666;
+    }
+  }
+
+  &__summary {
+    display: flex;
+    gap: 16px;
+  }
+
+  &__empty {
+    padding: 16px;
+    border: 1px dashed #ccc;
+    border-radius: 8px;
+    color: #666;
+  }
+}
+
+.summary-card {
+  padding: 16px;
+  min-width: 220px;
+  border-radius: 10px;
+  background: #f5f7fa;
+
+  &__label {
+    display: block;
+    margin-bottom: 8px;
+    color: #555;
+    font-size: 14px;
+  }
+
+  &__value {
+    font-size: 28px;
+    font-weight: 700;
+  }
+}
