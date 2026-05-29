@@ -21,10 +21,10 @@ export function formatLeakageTrend(metrics: LeakageMetrics[]): string {
 }
 
 export function getOpportunityCategory(score: number): string {
-  if (score >= 80) {
+  if (score >= 80 && score <= 100) {
     return "High";
   }
-
+  
   if (score >= 50) {
     return "Medium";
   }

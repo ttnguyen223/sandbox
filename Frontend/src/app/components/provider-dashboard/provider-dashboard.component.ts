@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LeakageMetrics } from '../../models/leakage-metrics';
 import {
@@ -13,8 +13,14 @@ import {
   templateUrl: './provider-dashboard.component.html',
   styleUrls: ['./provider-dashboard.component.scss']
 })
-export class ProviderDashboardComponent {
+export class ProviderDashboardComponent implements OnInit {
   @Input() metrics: LeakageMetrics[] = [];
+
+  ngOnInit(): void {
+    if (!this.metrics) {
+      this.metrics = [];
+    }
+  }
 
   get leakageTrend(): number {
     return calculateLeakageTrend(this.metrics);
