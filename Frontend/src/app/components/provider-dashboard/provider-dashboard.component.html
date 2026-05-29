@@ -6,7 +6,7 @@
 
   <div *ngIf="hasMetrics; else emptyState" class="provider-dashboard__summary">
     <div class="summary-card">
-      <span class="summary-card__label">Current Average Leakage</span>
+      <span class="summary-card__label">Current Quarter Average Leakage</span>
       <strong class="summary-card__value">
         {{ leakageTrend | number: "1.2-2" }}%
       </strong>
