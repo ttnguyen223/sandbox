@@ -12,7 +12,7 @@ export function calculateLeakageTrend(
     0
   );
 
-  const averageLeakage = totalLeakage / metrics.length;
+  const averageLeakage = metrics.length > 0 ? totalLeakage / metrics.length : 0;
   return Math.round(averageLeakage * 100) / 100;
 }
 
@@ -20,8 +20,12 @@ export function formatLeakageTrend(metrics: LeakageMetrics[]): string {
   return `${calculateLeakageTrend(metrics).toFixed(2)}%`;
 }
 
-export function getOpportunityCategory(score: number): string {
-  if (score >= 80) {
+export function getOpportunityCategory(score: number, isDollars = false): string {
+  if (score >= 80 && isDollars) {
+    return "High Dollars";
+  }
+
+  if (score >= 90) {
     return "High";
   }
 

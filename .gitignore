@@ -1,0 +1,9 @@
+# Angular build/cache files
+Frontend/.angular/cache/
+
+# optional: any .cache folders
+**/.cache/
+
+# optional: generated cache artifacts
+*.pack
+*.json

@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from "@angular/core/testing";
-import { CommonModule } from "@angular/common";
 import { ProviderDashboardComponent } from "./provider-dashboard.component";
 
 describe("ProviderDashboardComponent", () => {
@@ -8,8 +7,7 @@ describe("ProviderDashboardComponent", () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [CommonModule],
-      declarations: [ProviderDashboardComponent]
+      imports: [ProviderDashboardComponent]
     }).compileComponents();
 
     fixture = TestBed.createComponent(ProviderDashboardComponent);
@@ -70,5 +68,30 @@ describe("ProviderDashboardComponent", () => {
     expect(element.textContent).toContain("Current Average Leakage");
     expect(element.textContent).toContain("30.00%");
     expect(element.textContent).toContain("Low");
+  });
+
+  it("should render title and label from signals", () => {
+    expect(component.title()).toBe("Provider Network Dashboard");
+    expect(component.leakageLabel()).toBe("Current Average Leakage");
+
+    component.metrics = [
+      {
+        market: "Dallas",
+        leakageRate: 20,
+        opportunityScore: 75
+      }
+    ];
+
+    fixture.detectChanges();
+
+    const header = fixture.nativeElement.querySelector(
+      ".provider-dashboard__header h1"
+    ) as HTMLElement;
+    const label = fixture.nativeElement.querySelector(
+      ".summary-card__label"
+    ) as HTMLElement;
+
+    expect(header.textContent?.trim()).toBe("Provider Network Dashboard");
+    expect(label.textContent?.trim()).toBe("Current Average Leakage");
   });
 });

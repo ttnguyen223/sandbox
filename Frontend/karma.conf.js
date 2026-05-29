@@ -1,4 +1,5 @@
 const { merge } = require('webpack-merge');
+process.env.CHROME_BIN = process.env.CHROME_BIN || '/usr/bin/google-chrome-stable';
 
 module.exports = function (config) {
   config.set({
@@ -27,7 +28,13 @@ module.exports = function (config) {
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: true,
-    browsers: ['ChromeHeadless'],
+    customLaunchers: {
+      ChromeHeadlessNoSandbox: {
+        base: 'ChromeHeadless',
+        flags: ['--no-sandbox', '--disable-setuid-sandbox']
+      }
+    },
+    browsers: ['ChromeHeadlessNoSandbox'],
     restartOnFileChange: true,
     singleRun: false,
     browserNoActivityTimeout: 60000

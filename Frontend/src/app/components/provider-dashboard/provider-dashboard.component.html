@@ -1,12 +1,12 @@
 <section class="provider-dashboard">
   <header class="provider-dashboard__header">
-    <h1>{{ title }}</h1>
+    <h1>{{ title() }}</h1>
     <p>Review leakage trends and network opportunity signals.</p>
   </header>
 
   <div *ngIf="hasMetrics; else emptyState" class="provider-dashboard__summary">
     <div class="summary-card">
-      <span class="summary-card__label">Current Average Leakage</span>
+      <span class="summary-card__label">{{ leakageLabel() }}</span>
       <strong class="summary-card__value">
         {{ leakageTrend | number: "1.2-2" }}%
       </strong>
