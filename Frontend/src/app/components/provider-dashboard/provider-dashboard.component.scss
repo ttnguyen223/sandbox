@@ -50,3 +50,24 @@
     font-weight: 700;
   }
 }
+.category {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 999px;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-size: 12px;
+}
+
+.category--high {
+  background: #198754;
+}
+
+.category--medium {
+  background: #ffc107;
+}
+
+.category--low {
+  background: #6c757d;
+}

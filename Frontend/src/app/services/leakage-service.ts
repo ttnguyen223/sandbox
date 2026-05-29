@@ -12,7 +12,12 @@ export function calculateLeakageTrend(
     0
   );
 
-  return totalLeakage / metrics.length;
+  const averageLeakage = totalLeakage / metrics.length;
+  return Math.round(averageLeakage * 100) / 100;
+}
+
+export function formatLeakageTrend(metrics: LeakageMetrics[]): string {
+  return `${calculateLeakageTrend(metrics).toFixed(2)}%`;
 }
 
 export function getOpportunityCategory(score: number): string {

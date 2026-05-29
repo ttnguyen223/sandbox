@@ -67,7 +67,8 @@ describe("ProviderDashboardComponent", () => {
 
     const element: HTMLElement = fixture.nativeElement;
 
-    expect(element.textContent).toContain("Current Leakage");
+    expect(element.textContent).toContain("Current Average Leakage");
     expect(element.textContent).toContain("30.00%");
+    expect(element.textContent).toContain("Low");
   });
 });

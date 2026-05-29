@@ -1,7 +1,10 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LeakageMetrics } from '../../models/leakage-metrics';
-import { calculateLeakageTrend } from '../../services/leakage-service';
+import {
+  calculateLeakageTrend,
+  getOpportunityCategory
+} from '../../services/leakage-service';
 
 @Component({
   selector: 'app-provider-dashboard',
